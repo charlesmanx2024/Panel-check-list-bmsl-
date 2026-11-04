@@ -752,6 +752,19 @@ function showToast(msg, ok) {
   t.classList.add('show');
   setTimeout(function(){ t.classList.remove('show'); },2800);
 }
+
+// ── Exponer funciones al scope global (requerido por type="module") ──
+window.loadRecords   = loadRecords;
+window.switchTab     = switchTab;
+window.logout        = logout;
+window.openDetail    = openDetail;
+window.closeModal    = closeModal;
+window.closeModalBtn = closeModalBtn;
+window.aprobar       = aprobar;
+window.mostrarRechazo = mostrarRechazo;
+window.confirmarRechazo = confirmarRechazo;
+window.removeFoto    = removeFoto;
+window.registrarSC   = registrarSC;
 </script>
 </body>
 </html>
