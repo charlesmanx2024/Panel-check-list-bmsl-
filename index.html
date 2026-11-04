@@ -486,8 +486,8 @@ function renderRecords() {
       '</div>'+
       '<div class="record-bottom">'+
         '<div class="stats">'+
-          '<span class="stat stat-ok">✅ '+r.ok+'</span>'+
-          (r.fail?'<span class="stat stat-fail">❌ '+r.fail+'</span>':'')+
+          '<span class="stat stat-ok">✅ '+(r.ok !== undefined ? r.ok : (r.checks ? Object.values(r.checks).filter(function(v){return v==='ok';}).length : ''))+'</span>'+
+          (r.fail ? '<span class="stat stat-fail">❌ '+r.fail+'</span>' : '')+
         '</div>'+
         badge+
       '</div>'+
@@ -754,17 +754,20 @@ function showToast(msg, ok) {
 }
 
 // ── Exponer funciones al scope global (requerido por type="module") ──
-window.loadRecords   = loadRecords;
-window.switchTab     = switchTab;
-window.logout        = logout;
-window.openDetail    = openDetail;
-window.closeModal    = closeModal;
-window.closeModalBtn = closeModalBtn;
-window.aprobar       = aprobar;
-window.mostrarRechazo = mostrarRechazo;
+window.loadRecords      = loadRecords;
+window.switchTab        = switchTab;
+window.login            = login;
+window.logout           = logout;
+window.openDetail       = openDetail;
+window.closeModal       = closeModal;
+window.closeModalBtn    = closeModalBtn;
+window.aprobar          = aprobar;
+window.mostrarRechazo   = mostrarRechazo;
 window.confirmarRechazo = confirmarRechazo;
-window.removeFoto    = removeFoto;
-window.registrarSC   = registrarSC;
+window.addFoto          = addFoto;
+window.removeFoto       = removeFoto;
+window.registrarSC      = registrarSC;
+window.showToast        = showToast;
 </script>
 </body>
 </html>
