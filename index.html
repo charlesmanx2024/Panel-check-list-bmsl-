@@ -540,8 +540,11 @@ function openDetail(folio) {
   document.getElementById('m-revision-info').innerHTML = infoHtml;
 
   var actionsHtml = '';
+  if (r.pdfUrl) {
+    actionsHtml += '<a href="'+r.pdfUrl+'" target="_blank" style="display:block;width:100%;margin-bottom:8px;padding:12px;background:#f97316;color:white;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;">📄 Ver / Descargar PDF</a>';
+  }
   if (estado==='Pendiente') {
-    actionsHtml =
+    actionsHtml +=
       '<button class="btn-aprobar" onclick="aprobar()">✅ Aprobar</button>'+
       '<button class="btn-rechazar" onclick="mostrarRechazo()">❌ Rechazar</button>';
   }
